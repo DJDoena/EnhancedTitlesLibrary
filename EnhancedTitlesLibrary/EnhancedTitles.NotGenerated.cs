@@ -21,6 +21,7 @@ namespace DoenaSoft.DVDProfiler.EnhancedTitles
                 {
                     s_XmlSerializer = new XmlSerializer(typeof(EnhancedTitlesList));
                 }
+
                 return (s_XmlSerializer);
             }
         }
@@ -29,20 +30,21 @@ namespace DoenaSoft.DVDProfiler.EnhancedTitles
         {
             using (FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                EnhancedTitlesList instance;
+                EnhancedTitlesList instance = (EnhancedTitlesList)(XmlSerializer.Deserialize(fs));
 
-                instance = (EnhancedTitlesList)(XmlSerializer.Deserialize(fs));
                 return (instance);
             }
         }
 
-        public static void Serialize(EnhancedTitlesList instance, String fileName)
+        public static void Serialize(EnhancedTitlesList instance
+            , String fileName)
         {
             using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read))
             {
                 using (XmlTextWriter xtw = new XmlTextWriter(fs, Encoding.UTF8))
                 {
                     xtw.Formatting = Formatting.Indented;
+
                     XmlSerializer.Serialize(xtw, instance);
                 }
             }
@@ -67,6 +69,7 @@ namespace DoenaSoft.DVDProfiler.EnhancedTitles
                 {
                     s_XmlSerializer = new XmlSerializer(typeof(EnhancedTitles));
                 }
+
                 return (s_XmlSerializer);
             }
         }
@@ -75,20 +78,21 @@ namespace DoenaSoft.DVDProfiler.EnhancedTitles
         {
             using (FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                EnhancedTitles instance;
+                EnhancedTitles instance = (EnhancedTitles)(XmlSerializer.Deserialize(fs));
 
-                instance = (EnhancedTitles)(XmlSerializer.Deserialize(fs));
                 return (instance);
             }
         }
 
-        public static void Serialize(EnhancedTitles instance, String fileName)
+        public static void Serialize(EnhancedTitles instance
+            , String fileName)
         {
             using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read))
             {
-                using(XmlTextWriter xtw = new XmlTextWriter(fs, Encoding.UTF8))
+                using (XmlTextWriter xtw = new XmlTextWriter(fs, Encoding.UTF8))
                 {
                     xtw.Formatting = Formatting.Indented;
+
                     XmlSerializer.Serialize(xtw, instance);
                 }
             }
