@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DoenaSoft.DVDProfiler.EnhancedTitles
+﻿namespace DoenaSoft.DVDProfiler.EnhancedTitles
 {
     public static class ClassGuid
     {
